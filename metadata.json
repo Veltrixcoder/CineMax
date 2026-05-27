@@ -1,0 +1,6 @@
+{
+  "name": "CineMax",
+  "description": "A elegant movie, TV show, and anime tracker and explorer powered by TMDb Proxy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
