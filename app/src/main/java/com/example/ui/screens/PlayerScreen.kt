@@ -683,6 +683,7 @@ fun PlayerScreen(
             }
         }
     }
+}
 
     // 4. Stream Source / Quality Selection Dialog
     if (showQualityDialog) {

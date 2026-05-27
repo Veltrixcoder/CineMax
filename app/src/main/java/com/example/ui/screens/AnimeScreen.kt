@@ -55,7 +55,7 @@ fun AnimeScreen(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+                .background(Color.Transparent)
                 .verticalScroll(rememberScrollState())
         ) {
             // Anime Featured Banner Header

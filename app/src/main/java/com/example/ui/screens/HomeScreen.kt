@@ -57,7 +57,7 @@ fun HomeScreen(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+                .background(Color.Transparent)
                 .verticalScroll(rememberScrollState())
         ) {
             // Hero Banner Feature

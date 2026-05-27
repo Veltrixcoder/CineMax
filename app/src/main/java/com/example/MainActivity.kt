@@ -13,7 +13,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
-import com.example.ui.components.MiniPlayer
 import com.example.ui.components.LiquidGlassBackground
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -63,15 +62,12 @@ class MainActivity : ComponentActivity() {
                     bottomBar = {
                         if (showBottomBar) {
                             NavigationBar(
-                                containerColor = Color(0xCC0D0E15),
+                                containerColor = Color(0xF2090A0E), // Docked high-fidelity glass color
                                 tonalElevation = 8.dp,
                                 modifier = Modifier
                                     .testTag("app_bottom_nav_bar")
-                                    .padding(horizontal = 16.dp, vertical = 8.dp)
-                                    .clip(RoundedCornerShape(24.dp))
                                     .border(
-                                        BorderStroke(1.dp, Color.White.copy(alpha = 0.08f)),
-                                        RoundedCornerShape(24.dp)
+                                        BorderStroke(0.5.dp, Color.White.copy(alpha = 0.12f))
                                     )
                             ) {
                                 // Home Item
@@ -275,7 +271,12 @@ class MainActivity : ComponentActivity() {
                                     mediaType = mediaType,
                                     id = id,
                                     viewModel = viewModel,
-                                    onBackClick = { navController.popBackStack() }
+                                    onBackClick = { navController.popBackStack() },
+                                    onPlayClick = {
+                                        navController.navigate("player") {
+                                            launchSingleTop = true
+                                        }
+                                    }
                                 )
                             }
 
@@ -288,23 +289,7 @@ class MainActivity : ComponentActivity() {
                             }
                         }
 
-                        // Persistent YouTube-style MiniPlayer just above bottom bar
-                        if (currentRoute != "player") {
-                            Box(
-                                modifier = Modifier
-                                    .align(Alignment.BottomCenter)
-                                    .padding(bottom = if (showBottomBar) 1.dp else 12.dp)
-                            ) {
-                                MiniPlayer(
-                                    viewModel = viewModel,
-                                    onMaximizeClick = {
-                                        navController.navigate("player") {
-                                            launchSingleTop = true
-                                        }
-                                    }
-                                )
-                            }
-                        }
+                        // MiniPlayer removed completely
                     }
                 }
             }

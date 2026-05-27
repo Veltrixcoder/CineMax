@@ -45,12 +45,12 @@ fun LibraryScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(Color.Transparent)
     ) {
         // Tab Header Selection
         TabRow(
             selectedTabIndex = selectedTabIndex,
-            containerColor = MaterialTheme.colorScheme.background,
+            containerColor = Color.Transparent,
             contentColor = CineRed,
             modifier = Modifier.padding(bottom = 4.dp)
         ) {
