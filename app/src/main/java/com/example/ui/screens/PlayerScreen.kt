@@ -42,6 +42,7 @@ import com.example.data.model.PlaybackStream
 import com.example.ui.theme.CineGold
 import com.example.ui.theme.CineRed
 import com.example.ui.viewmodel.MainViewModel
+import com.example.ui.components.LiquidGlassBackground
 import kotlinx.coroutines.delay
 import java.util.Locale
 
@@ -102,36 +103,10 @@ fun PlayerScreen(
         modifier = modifier
             .fillMaxSize()
             .background(Color(0xFF090B11))
-            .drawBehind {
-                // Liquid overlapping glowing neon fluid shapes
-                drawCircle(
-                    color = CineRed.copy(alpha = 0.18f),
-                    radius = 450.dp.toPx(),
-                    center = center.copy(
-                        x = center.x - 200.dp.toPx(),
-                        y = center.y - 300.dp.toPx()
-                    )
-                )
-                drawCircle(
-                    color = CineGold.copy(alpha = 0.08f),
-                    radius = 350.dp.toPx(),
-                    center = center.copy(
-                        x = center.x + 220.dp.toPx(),
-                        y = center.y + 100.dp.toPx()
-                    )
-                )
-                drawCircle(
-                    color = Color(0xFF00C6FF).copy(alpha = 0.12f),
-                    radius = 400.dp.toPx(),
-                    center = center.copy(
-                        x = center.x + 100.dp.toPx(),
-                        y = center.y - 450.dp.toPx()
-                    )
-                )
-            }
     ) {
-        // Main Screen Interface
-        Column(
+        LiquidGlassBackground {
+            // Main Screen Interface
+            Column(
             modifier = Modifier
                 .fillMaxSize()
                 .statusBarsPadding()

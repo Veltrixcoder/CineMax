@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import com.example.ui.components.MiniPlayer
+import com.example.ui.components.LiquidGlassBackground
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
@@ -32,6 +33,7 @@ import com.example.ui.theme.CineRed
 import com.example.ui.theme.MyApplicationTheme
 import com.example.ui.viewmodel.MainViewModel
 import com.example.ui.viewmodel.MainViewModelFactory
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -205,8 +207,9 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                 ) { innerPadding ->
-                    Box(modifier = Modifier.fillMaxSize()) {
-                        NavHost(
+                    LiquidGlassBackground {
+                        Box(modifier = Modifier.fillMaxSize()) {
+                            NavHost(
                             navController = navController,
                             startDestination = "home",
                             modifier = Modifier
@@ -304,6 +307,7 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                 }
+            }
             }
         }
     }
